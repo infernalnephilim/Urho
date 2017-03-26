@@ -269,7 +269,7 @@ void MainScene::HandlePostUpdate(StringHash eventType, VariantMap& eventData)
 	headNode->Rotate(Quaternion(0.0f, 90.0f, 90.0f));
 
 		// Third person camera: position behind the character
-		Vector3 aimPoint = characterNode->GetPosition() + rot * Vector3(0.0f, 1.7f, 0.0f);
+		Vector3 aimPoint = characterNode->GetPosition() + rot * Vector3(0.0f, 2.2f, -1.0f);
 
 		// Collide camera ray with static physics objects (layer bitmask 2) to ensure we see the character properly
 		Vector3 rayDir = dir * Vector3::BACK;
