@@ -1,0 +1,29 @@
+[Tue Mar 21 00:06:04 2017] INFO: Opened log file Urho3D.log
+[Tue Mar 21 00:06:04 2017] INFO: Created 3 worker threads
+[Tue Mar 21 00:06:04 2017] INFO: Added resource path C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/Data/
+[Tue Mar 21 00:06:04 2017] INFO: Added resource path C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/CoreData/
+[Tue Mar 21 00:06:04 2017] INFO: Added resource path C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/Autoload/LargeData/
+[Tue Mar 21 00:06:04 2017] INFO: Set screen mode 1024x768 windowed
+[Tue Mar 21 00:06:04 2017] INFO: Initialized input
+[Tue Mar 21 00:06:04 2017] INFO: Initialized user interface
+[Tue Mar 21 00:06:04 2017] INFO: Initialized renderer
+[Tue Mar 21 00:06:04 2017] INFO: Set audio mode 44100 Hz stereo interpolated
+[Tue Mar 21 00:06:04 2017] INFO: Initialized engine
+Used resources:
+Textures/Ramp.png
+Textures/Spot.png
+Textures/UI.png
+Textures/StoneDiffuse.dds
+Textures/StoneNormal.dds
+Techniques/NoTexture.xml
+Techniques/DiffNormal.xml
+Techniques/Diff.xml
+RenderPaths/Forward.xml
+UI/DefaultStyle.xml
+Textures/UrhoIcon.png
+Fonts/Anonymous Pro.ttf
+Models/Plane.mdl
+Models/Box.mdl
+Materials/StoneTiled.xml
+Materials/Stone.xml
+Shaders/HLSL/LitSolid.hlsl

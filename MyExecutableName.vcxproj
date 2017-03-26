@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{121932C4-7120-3114-8771-4B0BB2BC9053}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>MyExecutableName</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MyExecutableName.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MyExecutableName</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">MyExecutableName.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">MyExecutableName</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MyExecutableName.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MyExecutableName_d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+F:\Programy\CMake\bin\cmake.exe -E copy_if_different "C:/Program Files (x86)/Windows Kits/8.1/Redist/D3D/x86/d3dcompiler_47.dll" C:/Users/xmaca/Desktop/Urho3D/NewProject/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\lib\Urho3D.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;winmm.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/xmaca/Desktop/Urho3D/NewProject/Release/MyExecutableName.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/MyExecutableName.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+F:\Programy\CMake\bin\cmake.exe -E copy_if_different "C:/Program Files (x86)/Windows Kits/8.1/Redist/D3D/x86/d3dcompiler_47.dll" C:/Users/xmaca/Desktop/Urho3D/NewProject/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\lib\Urho3D.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;winmm.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/xmaca/Desktop/Urho3D/NewProject/RelWithDebInfo/MyExecutableName.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/MyExecutableName.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_PROFILING;URHO3D_LOGGING;URHO3D_THREADING;URHO3D_ANGELSCRIPT;URHO3D_LUA;TOLUA_RELEASE;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_URHO2D;URHO3D_CXX11;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Bullet;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+F:\Programy\CMake\bin\cmake.exe -E copy_if_different "C:/Program Files (x86)/Windows Kits/8.1/Redist/D3D/x86/d3dcompiler_47.dll" C:/Users/xmaca/Desktop/Urho3D/NewProject/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;C:\Users\xmaca\Desktop\Urho3D\Urho3D-master\Urho3D-master\lib\Urho3D_d.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;winmm.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;ws2_32.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;dxguid.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/xmaca/Desktop/Urho3D/NewProject/Debug/MyExecutableName_d.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/xmaca/Desktop/Urho3D/NewProject/bin/MyExecutableName_d.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+F:\Programy\CMake\bin\cmake.exe -HC:/Users/xmaca/Desktop/Urho3D/NewProject -BC:/Users/xmaca/Desktop/Urho3D/NewProject --check-stamp-file C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCCompiler.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCXXCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeGenericSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\WindowsPaths.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-C.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeRCCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeRCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCXXInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Compiler\MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\Urho3D-CMake-common.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckHost.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckCompilerToolchain.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeDependentOption.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindUrho3D.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckUrho3DLibrary.cpp;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindDirectX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFileCXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeConfigurableFile.in;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageHandleStandardArgs.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\GenerateExportHeader.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXCompilerFlag.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXSourceCompiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+F:\Programy\CMake\bin\cmake.exe -HC:/Users/xmaca/Desktop/Urho3D/NewProject -BC:/Users/xmaca/Desktop/Urho3D/NewProject --check-stamp-file C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCCompiler.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCXXCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeGenericSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\WindowsPaths.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-C.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeRCCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeRCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCXXInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Compiler\MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\Urho3D-CMake-common.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckHost.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckCompilerToolchain.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeDependentOption.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindUrho3D.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckUrho3DLibrary.cpp;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindDirectX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFileCXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeConfigurableFile.in;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageHandleStandardArgs.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\GenerateExportHeader.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXCompilerFlag.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXSourceCompiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+F:\Programy\CMake\bin\cmake.exe -HC:/Users/xmaca/Desktop/Urho3D/NewProject -BC:/Users/xmaca/Desktop/Urho3D/NewProject --check-stamp-file C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCCompiler.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeCXXCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeSystemSpecificInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeGenericSystem.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\WindowsPaths.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-C.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\3.8.0-rc1\CMakeRCCompiler.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeRCInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCXXInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeLanguageInformation.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Compiler\MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC-CXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\Platform\Windows-MSVC.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\Urho3D-CMake-common.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckHost.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckCompilerToolchain.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeDependentOption.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindUrho3D.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\CheckUrho3DLibrary.cpp;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\FindDirectX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFileCXX.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CheckIncludeFile.cxx.in;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeConfigurableFile.in;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageHandleStandardArgs.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\FindPackageMessage.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMake\Modules\GenerateExportHeader.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeParseArguments.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXCompilerFlag.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CheckCXXSourceCompiles.cmake;F:\Programy\CMake\share\cmake-3.8\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\xmaca\Desktop\Urho3D\NewProject\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="Touch.cpp" />
+    <None Include="App.inl" />
+    <None Include="C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\CoreData" />
+    <None Include="C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\xmaca\Desktop\Urho3D\NewProject\ZERO_CHECK.vcxproj">
+      <Project>C095A313-DA96-3F52-B50D-3B6A101A3C22</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="MainScene.h" />
+    <ClInclude Include="Touch.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,4 @@
+C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/MyExecutableName.dir
+C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/INSTALL.dir
+C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/ALL_BUILD.dir
+C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/ZERO_CHECK.dir
