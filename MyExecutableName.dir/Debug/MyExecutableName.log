@@ -1,5 +1,3 @@
-﻿  Building Custom Rule C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt
-  CMake does not need to re-run because C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/generate.stamp is up-to-date.
-  Main.cpp
+﻿  Character.cpp
      Creating library C:/Users/xmaca/Desktop/Urho3D/NewProject/Debug/MyExecutableName_d.lib and object C:/Users/xmaca/Desktop/Urho3D/NewProject/Debug/MyExecutableName_d.exp
   MyExecutableName.vcxproj -> C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\MyExecutableName_d.exe

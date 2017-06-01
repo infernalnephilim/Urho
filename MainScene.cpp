@@ -94,11 +94,11 @@ void MainScene::CreateScene()
 
 	// Create the floor object
 	Node* floorNode = scene_->CreateChild("Floor");
-	floorNode->SetPosition(Vector3(0.0f, -0.5f, 0.0f));
-	floorNode->SetScale(Vector3(200.0f, 1.0f, 200.0f));
+	floorNode->SetPosition(Vector3(0.0f, -0.5f, 100.0f));
+	floorNode->SetScale(Vector3(20.0f, 1.0f, 200.0f));
 	StaticModel* object = floorNode->CreateComponent<StaticModel>();
 	object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+	object->SetMaterial(cache->GetResource<Material>("Materials/Terrain.xml"));
 
 	RigidBody* body = floorNode->CreateComponent<RigidBody>();
 	// Use collision layer bit 2 to mark world scenery. This is what we will raycast against to prevent camera from going
@@ -106,6 +106,30 @@ void MainScene::CreateScene()
 	body->SetCollisionLayer(2);
 	CollisionShape* shape = floorNode->CreateComponent<CollisionShape>();
 	shape->SetBox(Vector3::ONE);
+
+	Node* leftWallNode = scene_->CreateChild("LeftWall");
+	leftWallNode->SetPosition(Vector3(-5.0f, 2.0f, 100.0f));
+	leftWallNode->SetScale(Vector3(1.0f, 4.0f, 200.0f));
+	StaticModel* object2 = leftWallNode->CreateComponent<StaticModel>();
+	object2->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+	object2->SetMaterial(cache->GetResource<Material>("Materials/GreenTransparent.xml"));
+
+	RigidBody* body2 = leftWallNode->CreateComponent<RigidBody>();
+	body2->SetCollisionLayer(2);
+	CollisionShape* shape2 = leftWallNode->CreateComponent<CollisionShape>();
+	shape2->SetBox(Vector3::ONE);
+
+	Node* rightWallNode = scene_->CreateChild("RightWall");
+	rightWallNode->SetPosition(Vector3(5.0f, 2.0f, 100.0f));
+	rightWallNode->SetScale(Vector3(1.0f, 4.0f, 200.0f));
+	StaticModel* object3 = rightWallNode->CreateComponent<StaticModel>();
+	object3->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+	object3->SetMaterial(cache->GetResource<Material>("Materials/GreenTransparent.xml"));
+
+	RigidBody* body3 = rightWallNode->CreateComponent<RigidBody>();
+	body3->SetCollisionLayer(2);
+	CollisionShape* shape3 = rightWallNode->CreateComponent<CollisionShape>();
+	shape3->SetBox(Vector3::ONE);
 }
 
 void MainScene::CreateCharacter() {

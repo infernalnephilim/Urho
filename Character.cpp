@@ -1,11 +1,16 @@
 #include <Urho3D/Core/Context.h>
 #include <Urho3D/Graphics/AnimationController.h>
 #include <Urho3D/IO/MemoryBuffer.h>
+#include <Urho3D/Math/Color.h>
 #include <Urho3D/Physics/PhysicsEvents.h>
 #include <Urho3D/Physics/PhysicsWorld.h>
+#include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Physics/RigidBody.h>
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Scene/SceneEvents.h>
+#include <Urho3D/UI/Font.h>
+#include <Urho3D/UI/Text.h>
+#include <Urho3D/UI/UI.h>
 
 #include "Character.h"
 
@@ -29,6 +34,9 @@ void Character::RegisterObject(Context* context)
 	URHO3D_ATTRIBUTE("Controls Pitch", float, controls_.pitch_, 0.0f, AM_DEFAULT);
 	URHO3D_ATTRIBUTE("On Ground", bool, onGround_, false, AM_DEFAULT);
 	URHO3D_ATTRIBUTE("OK To Jump", bool, okToJump_, true, AM_DEFAULT);
+	URHO3D_ATTRIBUTE("On Left Lane", bool, onLeftLane_, false, AM_DEFAULT);
+	URHO3D_ATTRIBUTE("On Middle Lane", bool, onMiddleLane_, true, AM_DEFAULT);
+	URHO3D_ATTRIBUTE("On Right Lane", bool, onRightLane_, false, AM_DEFAULT);
 	URHO3D_ATTRIBUTE("In Air Timer", float, inAirTimer_, 0.0f, AM_DEFAULT);
 }
 
@@ -40,6 +48,27 @@ void Character::Start()
 
 void Character::FixedUpdate(float timeStep)
 {
+
+	/////////////////////////////
+	ResourceCache* cache = GetSubsystem<ResourceCache>();
+	UI* ui = GetSubsystem<UI>();
+
+	// Construct new Text object, set string to display and font to use
+	Text* instructionText = ui->GetRoot()->CreateChild<Text>();
+	instructionText->SetText(
+		"\t\t\t\tTEXT\t\t\t\t"
+	);
+	instructionText->SetFont(cache->GetResource<Font>("Fonts/Anonymous Pro.ttf"), 15);
+	// The text has multiple rows. Center them in relation to each other
+	instructionText->SetTextAlignment(HA_CENTER);
+
+	// Position the text relative to the screen center
+	instructionText->SetHorizontalAlignment(HA_CENTER);
+	instructionText->SetVerticalAlignment(VA_CENTER);
+	instructionText->SetPosition(0, ui->GetRoot()->GetHeight() / 4);
+	////////////////////////////////
+
+
 	/// \todo Could cache the components for faster access instead of finding them each frame
 	RigidBody* body = GetComponent<RigidBody>();
 	AnimationController* animCtrl = GetComponent<AnimationController>();
@@ -63,10 +92,78 @@ void Character::FixedUpdate(float timeStep)
 		moveDir += Vector3::FORWARD;
 	/*if (controls_.IsDown(CTRL_BACK))
 		moveDir += Vector3::BACK;*/
-	if (controls_.IsDown(CTRL_LEFT))
-		moveDir += Vector3::LEFT;
 	if (controls_.IsDown(CTRL_RIGHT))
+	{
 		moveDir += Vector3::RIGHT;
+		//body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+		/*if ((body->GetPosition()).x_ >= 2.0f)
+		{
+			instructionText->SetPosition(70.0f, ui->GetRoot()->GetHeight() / 4);
+		}
+		else if ((body->GetPosition()).x_ < 2.0f && (body->GetPosition()).x_ > -2.0f)
+		{
+			body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+		}
+		else {
+			body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+		}
+*/
+		/*if (onMiddleLane_)
+		{
+			onMiddleLane_ = false;
+			moveDir += Vector3::RIGHT * 15;
+			onRightLane_ = true;
+			
+		}
+		else if (onLeftLane_)
+		{
+			onLeftLane_ = false;
+			moveDir += Vector3::RIGHT * 15;
+			onMiddleLane_ = true;
+			
+		}*/
+	}
+
+	if (controls_.IsDown(CTRL_LEFT))
+	{
+		moveDir += Vector3::LEFT;
+		//body->SetPosition((body->GetPosition()) + Vector3::LEFT * 2);
+		//if ((body->GetPosition()).x_ <= 2.0f)
+		//{
+		//	
+		//	//instructionText->SetPosition(70.0f, ui->GetRoot()->GetHeight() / 4);
+		//}
+		//else if ((body->GetPosition()).x_ < 2.0f && (body->GetPosition()).x_ > -2.0f)
+		//{
+		//	//body->ApplyImpulse(Vector3::LEFT * 2 * MOVE_FORCE);
+		//	body->SetPosition((body->GetPosition()) + Vector3::LEFT * 2);
+		//	//moveDir += Vector3::LEFT * 15;
+		//}
+		//else {
+		//	body->SetPosition((body->GetPosition()) + Vector3::LEFT * 2);
+		//}
+		/*if (onLeftLane_)
+		{
+			instructionText->SetPosition(-70.0f, ui->GetRoot()->GetHeight() / 4);
+		}
+		if(onMiddleLane_)
+		{
+			onMiddleLane_ = false;
+			moveDir += Vector3::LEFT*15;
+			onLeftLane_ = true;
+			
+		}
+		else if (onRightLane_)
+		{
+			onRightLane_ = false;
+			moveDir += Vector3::LEFT * 15;
+			onMiddleLane_ = true;
+			
+		}*/
+
+		
+	}
+	
 
 	// Normalize move vector so that diagonal strafing is not faster
 	if (moveDir.LengthSquared() > 0.0f)

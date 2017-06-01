@@ -19,6 +19,7 @@ const float YAW_SENSITIVITY = 0.1f;
 const float INAIR_THRESHOLD_TIME = 0.1f;
 
 
+
 /// Character component, responsible for physical movement according to controls, as well as animation.
 class Character : public LogicComponent
 {
@@ -49,4 +50,8 @@ private:
 	bool okToJump_;
 	/// In air timer. Due to possible physics inaccuracy, character can be off ground for max. 1/10 second and still be allowed to move.
 	float inAirTimer_;
+
+	bool onLeftLane_;
+	bool onMiddleLane_;
+	bool onRightLane_;
 };

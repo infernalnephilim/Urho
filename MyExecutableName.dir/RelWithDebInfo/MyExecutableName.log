@@ -1,0 +1,8 @@
+﻿  Building Custom Rule C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/xmaca/Desktop/Urho3D/NewProject/CMakeFiles/generate.stamp is up-to-date.
+  Character.cpp
+  MainScene.cpp
+  Touch.cpp
+  Generating Code...
+     Creating library C:/Users/xmaca/Desktop/Urho3D/NewProject/RelWithDebInfo/MyExecutableName.lib and object C:/Users/xmaca/Desktop/Urho3D/NewProject/RelWithDebInfo/MyExecutableName.exp
+  MyExecutableName.vcxproj -> C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\MyExecutableName.exe
