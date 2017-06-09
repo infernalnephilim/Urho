@@ -1,0 +1,8 @@
+<material>
+	<technique name="Diff.xml"/>
+	<texture name="Skin Diffuse Color.001" unit="diffuse"/>
+	<parameter name="MatDiffColor" value="0.8 0.585047 0.510093 1"/>
+	<parameter name="MatSpecColor" value="0 0 0 50"/>
+	<cull value="none"/>
+	<shadowcull value="none"/>
+</material>

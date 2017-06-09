@@ -29,11 +29,11 @@ private:
 	
 	void SubscribeToEvents();
 	
-	
 	/// Handle application update. Set controls to character.
 	void HandleUpdate(StringHash eventType, VariantMap& eventData);
 	/// Handle application post-update. Update camera position after character has moved.
 	void HandlePostUpdate(StringHash eventType, VariantMap& eventData);
+	void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
 
 	/// Touch utility object.
 	SharedPtr<Touch> touch_;

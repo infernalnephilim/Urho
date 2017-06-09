@@ -3,6 +3,7 @@
 #include <Urho3D/Engine/Engine.h>
 #include <Urho3D/Graphics/AnimatedModel.h>
 #include <Urho3D/Graphics/AnimationController.h>
+#include <Urho3D/Graphics/DebugRenderer.h>
 #include <Urho3D/Graphics/Camera.h>
 #include <Urho3D/Graphics/Light.h>
 #include <Urho3D/Graphics/Material.h>
@@ -67,6 +68,7 @@ void MainScene::CreateScene()
 	// Create scene subsystem components
 	scene_->CreateComponent<Octree>();
 	scene_->CreateComponent<PhysicsWorld>();
+	 scene_->CreateComponent<DebugRenderer>();
 
 	// Create camera and define viewport. We will be doing load / save, so it's convenient to create the camera outside the scene,
 	// so that it won't be destroyed and recreated, and we don't have to redefine the viewport on load
@@ -162,6 +164,27 @@ void MainScene::CreateScene()
 		CollisionShape* shape5 = objectNode->CreateComponent<CollisionShape>();
 		shape5->SetBox(Vector3::ONE);
 	}
+
+	const unsigned NUM_CARROTS = 30;
+	for (unsigned i = 0; i < NUM_CARROTS; ++i)
+	{
+		std::cout << int(Random(3.0f));
+		Node* carrotNode = scene_->CreateChild("Carrot");
+		carrotNode->SetPosition(Vector3((int(Random(3.0f) - 1.0f))*3.0f - 3.0f, 2.0f, (Random(90.0f) + 5.0f) * 4));
+		carrotNode->SetRotation(Quaternion(0.0f, 0.0f, 0.0f));
+		carrotNode->SetScale(1.5f);
+		StaticModel* carrot = carrotNode->CreateComponent<StaticModel>();
+		carrot->SetModel(cache->GetResource<Model>("Models/TeaPot.mdl"));
+		carrot->SetMaterial(cache->GetResource<Material>("Models/marchew/material.xml"));
+		carrot->SetCastShadows(true);
+
+		RigidBody* carrotBody = carrotNode->CreateComponent<RigidBody>();
+		carrotBody->SetCollisionLayer(2);
+		// Bigger boxes will be heavier and harder to move
+		//body5->SetMass(20.0f);
+		CollisionShape* carrotShape = carrotNode->CreateComponent<CollisionShape>();
+		carrotShape->SetBox(Vector3::ONE);
+	}
 	/*
 	RigidBody* ch = character_->GetComponent<RigidBody>();
 
@@ -228,7 +251,7 @@ void MainScene::SubscribeToEvents()
 
 	// Subscribe to PostUpdate event for updating the camera position after physics simulation
 	SubscribeToEvent(E_POSTUPDATE, URHO3D_HANDLER(MainScene, HandlePostUpdate));
-
+	SubscribeToEvent(E_POSTRENDERUPDATE, URHO3D_HANDLER(MainScene, HandlePostRenderUpdate));
 	// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
 	UnsubscribeFromEvent(E_SCENEUPDATE);
 }
@@ -352,4 +375,9 @@ void MainScene::HandlePostUpdate(StringHash eventType, VariantMap& eventData)
 		cameraNode_->SetRotation(dir);
 	
 	
+}
+
+void MainScene::HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData)
+{
+	GetSubsystem<Renderer>()->DrawDebugGeometry(true);
 }
