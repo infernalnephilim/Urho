@@ -54,4 +54,5 @@ private:
 	bool onLeftLane_;
 	bool onMiddleLane_;
 	bool onRightLane_;
+
 };

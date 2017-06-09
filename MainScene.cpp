@@ -17,6 +17,7 @@
 #include <Urho3D/Physics/RigidBody.h>
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Scene/Scene.h>
+#include <Urho3D/Graphics/Skybox.h>
 #include <Urho3D/UI/Font.h>
 #include <Urho3D/UI/Text.h>
 #include <Urho3D/UI/UI.h>
@@ -26,6 +27,7 @@
 #include "Character.h"
 #include "MainScene.h"
 #include "Touch.h"
+#include <iostream>
 
 URHO3D_DEFINE_APPLICATION_MAIN(MainScene)
 
@@ -92,10 +94,17 @@ void MainScene::CreateScene()
 	light->SetShadowCascade(CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f));
 	light->SetSpecularIntensity(0.5f);
 
+	// SKY
+	Node* skyNode = scene_->CreateChild("Sky");
+	skyNode->SetScale(500.0f); // The scale actually does not matter
+	Skybox* skybox = skyNode->CreateComponent<Skybox>();
+	skybox->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+	skybox->SetMaterial(cache->GetResource<Material>("Materials/Skybox.xml"));
+
 	// Create the floor object
 	Node* floorNode = scene_->CreateChild("Floor");
 	floorNode->SetPosition(Vector3(0.0f, -0.5f, 100.0f));
-	floorNode->SetScale(Vector3(20.0f, 1.0f, 200.0f));
+	floorNode->SetScale(Vector3(100.0f, 1.0f, 200.0f));
 	StaticModel* object = floorNode->CreateComponent<StaticModel>();
 	object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
 	object->SetMaterial(cache->GetResource<Material>("Materials/Terrain.xml"));
@@ -108,7 +117,7 @@ void MainScene::CreateScene()
 	shape->SetBox(Vector3::ONE);
 
 	Node* leftWallNode = scene_->CreateChild("LeftWall");
-	leftWallNode->SetPosition(Vector3(-5.0f, 2.0f, 100.0f));
+	leftWallNode->SetPosition(Vector3(-4.5f, 2.0f, 100.0f));
 	leftWallNode->SetScale(Vector3(1.0f, 4.0f, 200.0f));
 	StaticModel* object2 = leftWallNode->CreateComponent<StaticModel>();
 	object2->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
@@ -120,7 +129,7 @@ void MainScene::CreateScene()
 	shape2->SetBox(Vector3::ONE);
 
 	Node* rightWallNode = scene_->CreateChild("RightWall");
-	rightWallNode->SetPosition(Vector3(5.0f, 2.0f, 100.0f));
+	rightWallNode->SetPosition(Vector3(4.5f, 2.0f, 100.0f));
 	rightWallNode->SetScale(Vector3(1.0f, 4.0f, 200.0f));
 	StaticModel* object3 = rightWallNode->CreateComponent<StaticModel>();
 	object3->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
@@ -130,23 +139,63 @@ void MainScene::CreateScene()
 	body3->SetCollisionLayer(2);
 	CollisionShape* shape3 = rightWallNode->CreateComponent<CollisionShape>();
 	shape3->SetBox(Vector3::ONE);
+
+
+
+	const unsigned NUM_BOXES = 30;
+	for (unsigned i = 0; i < NUM_BOXES; ++i)
+	{
+		std::cout <<int(Random(3.0f));
+		Node* objectNode = scene_->CreateChild("Box");
+		objectNode->SetPosition(Vector3((int(Random(3.0f) - 1.0f))*3.0f - 3.0f, 0.75f, (Random(90.0f) + 5.0f)*4));
+		objectNode->SetRotation(Quaternion(0.0f, 0.0f,0.0f));
+		objectNode->SetScale(1.5f);
+		StaticModel* object5 = objectNode->CreateComponent<StaticModel>();
+		object5->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+		object5->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+		object5->SetCastShadows(true);
+
+		RigidBody* body5 = objectNode->CreateComponent<RigidBody>();
+		body5->SetCollisionLayer(2);
+		// Bigger boxes will be heavier and harder to move
+		//body5->SetMass(20.0f);
+		CollisionShape* shape5 = objectNode->CreateComponent<CollisionShape>();
+		shape5->SetBox(Vector3::ONE);
+	}
+	/*
+	RigidBody* ch = character_->GetComponent<RigidBody>();
+
+	if (ch->GetPosition().y_ > 10.0f)
+	{
+		Node* objectNode2 = scene_->CreateChild("Box");
+		objectNode2->SetPosition(Vector3((int(Random(3.0f) - 1.0f))*3.0f - 3.0f, 0.75f, (Random(90.0f) + 5.0f) * 4));
+		objectNode2->SetRotation(Quaternion(0.0f, 0.0f, 0.0f));
+		objectNode2->SetScale(2.5f);
+		StaticModel* object52 = objectNode2->CreateComponent<StaticModel>();
+		object52->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+		object52->SetMaterial(cache->GetResource<Material>("Materials/Water.xml"));
+		object52->SetCastShadows(true);
+	}
+	*/
 }
 
 void MainScene::CreateCharacter() {
 	ResourceCache* cache = GetSubsystem<ResourceCache>();
 
 	Node* objectNode = scene_->CreateChild("Jack");
-	objectNode->SetPosition(Vector3(0.0f, 1.0f, 0.0f));
+	objectNode->SetPosition(Vector3(0.0f, 1.1f, 0.0f));
+	//objectNode->SetScale(Vector3(1.0f, 1.0f, 1.0f));
+	//objectNode->SetRotation(Quaternion(90, Vector3(0, 1, 0)));
 
 	// Create the rendering component + animation controller
 	AnimatedModel* object = objectNode->CreateComponent<AnimatedModel>();
-	object->SetModel(cache->GetResource<Model>("Models/Jack.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Materials/Jack.xml"));
+	object->SetModel(cache->GetResource<Model>("Models/Mutant/Mutant.mdl"));
+	object->SetMaterial(cache->GetResource<Material>("Models/Mutant/Materials/mutant_M.xml"));
 	object->SetCastShadows(true);
 	objectNode->CreateComponent<AnimationController>();
 
 	// Set the head bone for manual control
-	object->GetSkeleton().GetBone("Bip01_Head")->animated_ = false;
+	object->GetSkeleton().GetBone("Mutant:Head")->animated_ = false;
 
 	// Create rigidbody, and set non-zero mass so that the body becomes dynamic
 	RigidBody* body = objectNode->CreateComponent<RigidBody>();
@@ -162,12 +211,13 @@ void MainScene::CreateCharacter() {
 
 	// Set a capsule shape for collision
 	CollisionShape* shape = objectNode->CreateComponent<CollisionShape>();
-	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f, 0.9f, 0.0f));
+	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f,0.9f, 0.0f));
 
 	// Create the character logic component, which takes care of steering the rigidbody
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
 	// and keeps it alive as long as it's not removed from the hierarchy
 	character_ = objectNode->CreateComponent<Character>();
+	//////////////////
 }
 
 
@@ -185,6 +235,9 @@ void MainScene::SubscribeToEvents()
 
 void MainScene::HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
+
+
+
 	using namespace Update;
 
 	Input* input = GetSubsystem<Input>();
@@ -199,6 +252,7 @@ void MainScene::HandleUpdate(StringHash eventType, VariantMap& eventData)
 			touch_->UpdateTouches(character_->controls_);
 		
 		
+	
 
 		// Update controls using keys
 		UI* ui = GetSubsystem<UI>();
@@ -237,11 +291,11 @@ void MainScene::HandleUpdate(StringHash eventType, VariantMap& eventData)
 				//character_->controls_.yaw_ += (float)input->GetMouseMoveX() * YAW_SENSITIVITY;
 				//character_->controls_.pitch_ += (float)input->GetMouseMoveY() * YAW_SENSITIVITY;
 			}
-
+			
 			character_->controls_.Set(CTRL_FORWARD);
 			
 			// Limit pitch
-			character_->controls_.pitch_ = Clamp(character_->controls_.pitch_, -80.0f, 80.0f);
+			//character_->controls_.pitch_ = Clamp(character_->controls_.pitch_, -80.0f, 80.0f);
 			// Set rotation already here so that it's updated every rendering frame instead of every physics frame
 			character_->GetNode()->SetRotation(Quaternion(character_->controls_.yaw_, Vector3::UP));
 
@@ -281,16 +335,6 @@ void MainScene::HandlePostUpdate(StringHash eventType, VariantMap& eventData)
 	// Get camera lookat dir from character yaw + pitch
 	Quaternion rot = characterNode->GetRotation();
 	Quaternion dir = rot * Quaternion(character_->controls_.pitch_, Vector3::RIGHT);
-
-	// Turn head to camera pitch, but limit to avoid unnatural animation
-	Node* headNode = characterNode->GetChild("Bip01_Head", true);
-	float limitPitch = Clamp(character_->controls_.pitch_, -45.0f, 45.0f);
-	Quaternion headDir = rot * Quaternion(limitPitch, Vector3(1.0f, 0.0f, 0.0f));
-	// This could be expanded to look at an arbitrary target, now just look at a point in front
-	Vector3 headWorldTarget = headNode->GetWorldPosition() + headDir * Vector3(0.0f, 0.0f, 1.0f);
-	headNode->LookAt(headWorldTarget, Vector3(0.0f, 1.0f, 0.0f));
-	// Correct head orientation because LookAt assumes Z = forward, but the bone has been authored differently (Y = forward)
-	headNode->Rotate(Quaternion(0.0f, 90.0f, 90.0f));
 
 		// Third person camera: position behind the character
 		Vector3 aimPoint = characterNode->GetPosition() + rot * Vector3(0.0f, 2.2f, -1.0f);

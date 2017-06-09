@@ -11,6 +11,7 @@
 #include <Urho3D/UI/Font.h>
 #include <Urho3D/UI/Text.h>
 #include <Urho3D/UI/UI.h>
+#include <Urho3D/UI/Window.h>
 
 #include "Character.h"
 
@@ -48,6 +49,7 @@ void Character::Start()
 
 void Character::FixedUpdate(float timeStep)
 {
+	RigidBody* body = GetComponent<RigidBody>();
 
 	/////////////////////////////
 	ResourceCache* cache = GetSubsystem<ResourceCache>();
@@ -55,9 +57,12 @@ void Character::FixedUpdate(float timeStep)
 
 	// Construct new Text object, set string to display and font to use
 	Text* instructionText = ui->GetRoot()->CreateChild<Text>();
+	
 	instructionText->SetText(
-		"\t\t\t\tTEXT\t\t\t\t"
+		body->GetPosition().ToString()
 	);
+
+	
 	instructionText->SetFont(cache->GetResource<Font>("Fonts/Anonymous Pro.ttf"), 15);
 	// The text has multiple rows. Center them in relation to each other
 	instructionText->SetTextAlignment(HA_CENTER);
@@ -68,9 +73,8 @@ void Character::FixedUpdate(float timeStep)
 	instructionText->SetPosition(0, ui->GetRoot()->GetHeight() / 4);
 	////////////////////////////////
 
-
 	/// \todo Could cache the components for faster access instead of finding them each frame
-	RigidBody* body = GetComponent<RigidBody>();
+	
 	AnimationController* animCtrl = GetComponent<AnimationController>();
 
 	// Update the in air timer. Reset if grounded
@@ -94,20 +98,24 @@ void Character::FixedUpdate(float timeStep)
 		moveDir += Vector3::BACK;*/
 	if (controls_.IsDown(CTRL_RIGHT))
 	{
-		moveDir += Vector3::RIGHT;
+		moveDir += Vector3::RIGHT;////////////////////
+
 		//body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
-		/*if ((body->GetPosition()).x_ >= 2.0f)
+		/*
+		if ((body->GetPosition()).x_ >= 3.0f)
 		{
 			instructionText->SetPosition(70.0f, ui->GetRoot()->GetHeight() / 4);
 		}
-		else if ((body->GetPosition()).x_ < 2.0f && (body->GetPosition()).x_ > -2.0f)
+		else if ((body->GetPosition()).x_ < 3.0f && (body->GetPosition()).x_ > -3.0f)
 		{
-			body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+			//body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+			body->SetPosition(Vector3(3.0f, (body->GetPosition()).y_, (body->GetPosition()).z_));
 		}
 		else {
-			body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+			//body->SetPosition((body->GetPosition()) + Vector3::RIGHT * 2);
+			body->SetPosition(Vector3(0.0f, (body->GetPosition()).y_, (body->GetPosition()).z_));
 		}
-*/
+		*/
 		/*if (onMiddleLane_)
 		{
 			onMiddleLane_ = false;
@@ -185,6 +193,7 @@ void Character::FixedUpdate(float timeStep)
 			{
 				body->ApplyImpulse(Vector3::UP * JUMP_FORCE);
 				okToJump_ = false;
+				animCtrl->PlayExclusive("Models/Mutant/Mutant_Jump1.ani", 0, false, 0.2f);
 			}
 		}
 		else
@@ -192,13 +201,20 @@ void Character::FixedUpdate(float timeStep)
 	}
 
 	// Play walk animation if moving on ground, otherwise fade it out
-	if (softGrounded && !moveDir.Equals(Vector3::ZERO))
-		animCtrl->PlayExclusive("Models/Jack_Walk.ani", 0, true, 0.2f);
+	
+	if (!onGround_)
+	{
+		animCtrl->PlayExclusive("Models/Mutant/Mutant_Jump1.ani", 0, false, 0.2f);
+	}
 	else
-		animCtrl->Stop("Models/Jack_Walk.ani", 0.2f);
-	// Set walk animation speed proportional to velocity
-	animCtrl->SetSpeed("Models/Jack_Walk.ani", planeVelocity.Length() * 0.3f);
-
+	{
+		if (softGrounded && !moveDir.Equals(Vector3::ZERO))
+			animCtrl->PlayExclusive("Models/Mutant/Mutant_Run.ani", 0, true, 0.2f);
+		else
+			animCtrl->Stop("Models/Mutant/Mutant_Run.ani", 0.2f);
+		// Set walk animation speed proportional to velocity
+		animCtrl->SetSpeed("Models/Mutant/Mutant_Run.ani", planeVelocity.Length() * 0.3f);
+	}
 	// Reset grounded flag for next frame
 	onGround_ = false;
 }
