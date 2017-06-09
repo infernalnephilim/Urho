@@ -1,2 +1,3 @@
 ﻿  MainScene.cpp
+MainScene.cpp(396): warning C4305: '+=': truncation from 'double' to 'float'
   MyExecutableName.vcxproj -> C:\Users\xmaca\Desktop\Urho3D\NewProject\bin\MyExecutableName_d.exe

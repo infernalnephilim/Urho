@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 #include <Urho3D/Core/CoreEvents.h>
 #include <Urho3D/Core/ProcessUtils.h>
 #include <Urho3D/Engine/Engine.h>
@@ -22,18 +25,19 @@
 #include <Urho3D/UI/Font.h>
 #include <Urho3D/UI/Text.h>
 #include <Urho3D/UI/UI.h>
+#include <Urho3D/IO/Log.h>
+#include <Urho3D/UI/UIEvents.h>
 
 #include <Urho3D/DebugNew.h>
 
 #include "Character.h"
 #include "MainScene.h"
 #include "Touch.h"
-#include <iostream>
 
 URHO3D_DEFINE_APPLICATION_MAIN(MainScene)
 
 MainScene::MainScene(Context* context) :
-	App(context)
+	App(context), time_(0)
 {
 	// Register factory and attributes for the Character component so it can be created via CreateComponent, and loaded / saved
 	Character::RegisterObject(context);
@@ -57,8 +61,42 @@ void MainScene::Start()
 	SubscribeToEvents();
 	
 	App::InitMouseMode(MM_RELATIVE);
-}
 
+	UpdateText();
+
+}
+void MainScene::UpdateText()
+{	
+	// CZAS
+	ResourceCache* cache = GetSubsystem<ResourceCache>();
+	GetSubsystem<UI>()->GetRoot()->SetDefaultStyle(cache->GetResource<XMLFile>("UI/DefaultStyle.xml"));
+	// Let's create some text to display.
+	text_ = new Text(context_);
+	// Text will be updated later in the E_UPDATE handler. Keep readin'.
+	text_->SetText("Score ");
+	// If the engine cannot find the font, it comes with Urho3D.
+	// Set the environment variables URHO3D_HOME, URHO3D_PREFIX_PATH or
+	// change the engine parameter "ResourcePrefixPath" in the Setup method.
+	text_->SetFont(cache->GetResource<Font>("Fonts/Anonymous Pro.ttf"), 20);
+	text_->SetColor(Color(0, 0, 0));
+	text_->SetHorizontalAlignment(HA_LEFT);
+	text_->SetVerticalAlignment(VA_TOP);
+	GetSubsystem<UI>()->GetRoot()->AddChild(text_);
+	
+	// POZYCJA BOHATERA
+	
+	text2_ = new Text(context_);
+	// Text will be updated later in the E_UPDATE handler. Keep readin'.
+	text2_->SetText("POS ");
+	// If the engine cannot find the font, it comes with Urho3D.
+	// Set the environment variables URHO3D_HOME, URHO3D_PREFIX_PATH or
+	// change the engine parameter "ResourcePrefixPath" in the Setup method.
+	text2_->SetFont(cache->GetResource<Font>("Fonts/Anonymous Pro.ttf"), 20);
+	text2_->SetColor(Color(1, 0, 0));
+	text2_->SetHorizontalAlignment(HA_RIGHT);
+	text2_->SetVerticalAlignment(VA_BOTTOM);
+	GetSubsystem<UI>()->GetRoot()->AddChild(text2_);
+}
 void MainScene::CreateScene()
 {
 	ResourceCache* cache = GetSubsystem<ResourceCache>();
@@ -68,7 +106,7 @@ void MainScene::CreateScene()
 	// Create scene subsystem components
 	scene_->CreateComponent<Octree>();
 	scene_->CreateComponent<PhysicsWorld>();
-	 scene_->CreateComponent<DebugRenderer>();
+	scene_->CreateComponent<DebugRenderer>();
 
 	// Create camera and define viewport. We will be doing load / save, so it's convenient to create the camera outside the scene,
 	// so that it won't be destroyed and recreated, and we don't have to redefine the viewport on load
@@ -259,8 +297,6 @@ void MainScene::SubscribeToEvents()
 void MainScene::HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
 
-
-
 	using namespace Update;
 
 	Input* input = GetSubsystem<Input>();
@@ -344,6 +380,7 @@ void MainScene::HandleUpdate(StringHash eventType, VariantMap& eventData)
 					character_ = characterNode->GetComponent<Character>();
 			}
 		}
+		
 	}
 }
 
@@ -354,6 +391,28 @@ void MainScene::HandlePostUpdate(StringHash eventType, VariantMap& eventData)
 		return;
 
 	Node* characterNode = character_->GetNode();
+
+	// update wyswietlanego score
+	time_ += 0.01;
+	std::string str;
+	str.append("Score: ");
+	str.append(std::to_string(int(time_ * 10)));
+	String s(str.c_str(), str.size());
+	text_->SetText(s);
+
+	// update wyswietlanej pozycji bohatera
+	std::string str2;
+	str2.append("posX: ");
+	str2.append(std::to_string(int(characterNode->GetPosition().x_)));
+	str2.append(" posY: ");
+	str2.append(std::to_string(int(characterNode->GetPosition().y_)));
+	str2.append(" posZ: ");
+	str2.append(std::to_string(int(characterNode->GetPosition().z_)));
+	String s2(str2.c_str(), str2.size());
+	text2_->SetText(s2);
+	
+
+
 
 	// Get camera lookat dir from character yaw + pitch
 	Quaternion rot = characterNode->GetRotation();

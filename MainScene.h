@@ -16,6 +16,12 @@ class MainScene : public App
 	URHO3D_OBJECT(MainScene, App);
 
 public:
+	SharedPtr<Text> text_;
+	SharedPtr<Text> text2_;
+	float time_;
+	float characterPositionX;
+	float characterPositionZ;
+
 	MainScene(Context* context);
 	~MainScene();
 
@@ -27,6 +33,8 @@ private:
 	// Utworzenie bohatera
 	void CreateCharacter();
 	
+	void UpdateText();
+
 	void SubscribeToEvents();
 	
 	/// Handle application update. Set controls to character.
